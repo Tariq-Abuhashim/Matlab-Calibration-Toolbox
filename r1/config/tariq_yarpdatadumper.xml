@@ -1,0 +1,33 @@
+  <application>
+      <!-- Generic information-->
+      <name>tariq_yarpdatadumper</name>
+      <description>Template Application</description>
+      <version></version>
+
+      <authors>
+          <author email=""> tariq.abuhashim </author>
+      </authors>
+
+      <!-- Required modules -->
+      <module>
+          <name>yarpdatadumper</name>
+          <parameters>--name /R1_stereo_vision --type image --txTime --rxTime</parameters>
+          <node>/windows</node>
+          <stdio></stdio>
+          <prefix></prefix>
+      </module>
+
+      <!-- Embedded applications -->
+      <application>
+          <name>Application_Name</name>
+          <prefix></prefix>
+       </application>
+
+      <!-- Required connections -->
+      <connection>
+          <from>/cer/cam/cameras:o</from>
+          <to>/R1_stereo_vision</to>
+          <protocol>tcp</protocol>
+      </connection>
+
+  </application>

@@ -1,0 +1,70 @@
+<application>
+
+<name>Vision data collection</name>
+
+        <dependencies>
+                <port>/icub/cam/left</port>
+                <port>/icub/cam/right</port>
+                <port>/icub/head/state:o</port>
+                <port>/icub/torso/state:o</port>
+                <port>/icub/inertial</port>
+        </dependencies>
+      
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/img/left/ --type image --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>imgleftLogger</tag>
+        </module>
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/img/right/ --type image --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>imgrightLogger</tag>
+        </module>
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/head/ --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>headLogger</tag>
+        </module>
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/torso/ --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>torsoLogger</tag>
+        </module>
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/inertial/ --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>inertialLogger</tag>
+        </module>
+
+        <connection>
+                <from>/icub/cam/left</from>
+                <to>/vision_data/img/left/</to>
+                <protocol>tcp</protocol>
+        </connection>
+        <connection>
+                <from>/icub/cam/right</from>
+                <to>/vision_data/img/right/</to>
+                <protocol>tcp</protocol>
+        </connection>
+        <connection>
+                <from>/icub/head/state:o</from>
+                <to>/vision_data/head</to>
+                <protocol>tcp</protocol>
+        </connection>
+        <connection>
+                <from>/icub/torso/state:o</from>
+                <to>/vision_data/torso/</to>
+                <protocol>tcp</protocol>
+        </connection>
+        <connection>
+                <from>/icub/inertial</from>
+                <to>/vision_data/inertial</to>
+                <protocol>tcp</protocol>
+        </connection>
+
+</application>

@@ -1,0 +1,137 @@
+<application>
+<name>Vision data collection</name>
+
+        <dependencies>
+                <port>/icub/cam/left</port>
+                <port>/icub/cam/right</port>
+
+                <port>/icub/left_arm/state:o</port>
+                <port>/icub/right_arm/state:o</port>
+
+                <port>/icub/torso/state:o</port>
+                <port>/icub/head/state:o</port>
+                <port>/icub/inertial</port>
+
+                <port>/icub/cartesianController/left_arm/state:o</port>
+                <port>/icub/cartesianController/right_arm/state:o</port>
+
+        </dependencies>
+      
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/img/left/ --type image --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>imgleftLogger</tag>
+        </module>
+
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/img/right/ --type image --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>imgrightLogger</tag>
+        </module>
+
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/left_arm/ --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>leftarmLogger</tag>
+        </module>
+
+
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/right_arm/ --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>rightarmLogger</tag>
+        </module>
+
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/torso/ --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>torsoLogger</tag>
+        </module>
+
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/head --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>headLogger</tag>
+        </module>
+
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/inertial --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>inertialLogger</tag>
+        </module>
+
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/cartesian/left --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>leftcartesianLogger</tag>
+        </module>
+        <module>
+                <name>yarpdatadumper</name>
+                <parameters>--name /vision_data/cartesian/right --txTime --rxTime</parameters>
+                <node>localhost</node>
+                <tag>rightcartesianLogger</tag>
+        </module>
+
+        <connection>
+                <from>/icub/cam/left</from>
+                <to>/vision_data/img/left/</to>
+                <protocol>tcp</protocol>
+        </connection>
+        <connection>
+                <from>/icub/cam/right</from>
+                <to>/vision_data/img/right/</to>
+                <protocol>tcp</protocol>
+        </connection>
+
+<!--
+        <connection>
+                <from>/icub/left_arm/state:o</from>
+                <to>/vision_data/left_arm/</to>
+                <protocol>tcp</protocol>
+        </connection>
+        <connection>
+                <from>/icub/right_arm/state:o</from>
+                <to>/vision_data/right_arm/</to>
+                <protocol>tcp</protocol>
+        </connection>
+-->
+
+        <connection>
+                <from>/icub/torso/state:o</from>
+                <to>/vision_data/torso/</to>
+                <protocol>tcp</protocol>
+        </connection>
+        <connection>
+                <from>/icub/head/state:o</from>
+                <to>/vision_data/head</to>
+                <protocol>tcp</protocol>
+        </connection>
+        <connection>
+                <from>/icub/inertial</from>
+                <to>/vision_data/inertial</to>
+                <protocol>tcp</protocol>
+        </connection>
+
+<!--
+        <connection>
+                <from>/icub/cartesianController/left_arm/state:o</from>
+                <to>/vision_data/cartesian/left</to>
+                <protocol>tcp</protocol>
+        </connection>
+        <connection>
+                <from>/icub/cartesianController/right_arm/state:o</from>
+                <to>/vision_data/cartesian/right</to>
+                <protocol>tcp</protocol>
+        </connection>
+-->
+
+</application>
+
