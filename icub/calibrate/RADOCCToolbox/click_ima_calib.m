@@ -25,7 +25,7 @@ catch
     eval(['n_sq_x_' num2str(kk) ' = NaN;']);
     eval(['n_sq_y_' num2str(kk) ' = NaN;']);
     eval(['extfail_' num2str(kk) ' = true;']);
-    fprintf('\nFailed\n');
+    fprintf('\nCorner finder failed\n');
     return;
 end
 
@@ -43,7 +43,7 @@ if autocrnrst.fail==true
     eval(['n_sq_x_' num2str(kk) ' = NaN;']);
     eval(['n_sq_y_' num2str(kk) ' = NaN;']);
     eval(['extfail_' num2str(kk) ' = true;']);
-    fprintf('Failed :(\n');
+    fprintf('Corner finder failed :(\n');
     return;
 end
 

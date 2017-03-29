@@ -56,6 +56,8 @@ saving_calib ; % saves the calibration
 
 %show_calib_results ;
 
+cd(this_path) ;
+
 end
 
 % the file test.m, in the most recent version that prompts the user to loop through the images then
